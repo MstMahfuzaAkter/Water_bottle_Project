@@ -13,6 +13,16 @@ const saveToLocalStorage = (cart) => {
 const addItemToCartLocalStorage = id => {
     const cart = getCartFromLocalStorage();
     //cart.push(id)
-    const newcart = [...cart, id];
-    saveToLocalStorage(newcart)
+    const newCart = [...cart, id];
+    saveToLocalStorage(newCart)
+}
+const removeFromLocalStorage = id => {
+    const storedCart = getCartFromLocalStorage();
+    const remainingCart = storedCart.filter(storedId => storedId !== id)
+    saveToLocalStorage(remainingCart)
+}
+export {
+    getCartFromLocalStorage as gC,
+    addItemToCartLocalStorage as aC
+    , removeFromLocalStorage
 }
